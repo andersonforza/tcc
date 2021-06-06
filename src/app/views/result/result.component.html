@@ -8,13 +8,13 @@
     </tr>
     <tr>
       <td>
-
+        {{ result?.Summary?.PersonsWithRequiredEquipment?.length || 0}}
       </td>
       <td>
-
+        {{ result?.Summary?.PersonsWithoutRequiredEquipment?.length || 0}}
       </td>
       <td>
-
+        {{ result?.Summary?.PersonsIndeterminate?.length || 0}}
       </td>
     </tr>
   </table>

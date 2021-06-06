@@ -8,9 +8,20 @@ import { Observable, Subject } from 'rxjs';
   styleUrls: ['./camera.component.css']
 })
 export class CameraComponent implements OnInit {
-
   @Output()
   public pictureTaken = new EventEmitter<WebcamImage>();
+  public pictureAsFile = new EventEmitter<WebcamImage>();
+
+
+  public handleImage(webcamImage: WebcamImage): void {
+    console.info('received webcam image', webcamImage);
+    this.pictureAsFile.emit(webcamImage);
+  }
+
+  public handleImageShot(webcamImage: WebcamImage): void {
+    console.info('received webcam image', webcamImage);
+    this.pictureTaken.emit(webcamImage);
+  }
 
   // toggle webcam on/off
   public showWebcam = true;
@@ -52,11 +63,6 @@ export class CameraComponent implements OnInit {
     // false => move backwards through devices
     // string => move to device with given deviceId
     this.nextWebcam.next(directionOrDeviceId);
-  }
-
-  public handleImage(webcamImage: WebcamImage): void {
-    console.info('received webcam image', webcamImage);
-    this.pictureTaken.emit(webcamImage);
   }
 
   public cameraWasSwitched(deviceId: string): void {
