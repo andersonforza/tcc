@@ -1,11 +1,13 @@
 <div id="titulo-upload">
   <h2>Análise com Upload de Arquivo</h2>
-</div>
-<div class="input-group" style="text-align:center">
+
+  <div class="input-group" style="text-align:center">
   <input type="file"
          class="form-control"
          id="inputGroupFile04"
          aria-describedby="inputGroupFileAddon04"
-         aria-label="Upload">
-  <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Analisar</button>
+         aria-label="Upload"
+         (change)="onFileSelected($event)" >
+  <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04" (click)="onUpload()" >Analisar</button>
+  </div>
 </div>

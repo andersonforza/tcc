@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { WebcamModule } from 'ngx-webcam';
@@ -17,7 +18,8 @@ import { UploadComponent } from './views/upload/upload.component';
   ],
   imports: [
     BrowserModule,
-    WebcamModule
+    WebcamModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
