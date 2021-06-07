@@ -8,20 +8,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'front';
-  url: string = '';
   result: any = {};
+
   constructor(private readonly http: HttpClient) {}
 
   public webcamImage: WebcamImage | undefined;
+  imageSrc: string = '';
 
   handleImageShot(webcamImage: WebcamImage) {
     this.webcamImage = webcamImage;
   }
 
+  handleUploadShot(event: any){
+    this.imageSrc = event;
+  }
+
   onUpload(file: File) {
     const fd = new FormData();
-    console.log(file);
     fd.append('teste', file);
     this.http.post<any>('http://localhost:3000/detectarEpis', fd).subscribe({
       next: (res) => {

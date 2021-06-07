@@ -7,7 +7,12 @@
          id="inputGroupFile04"
          aria-describedby="inputGroupFileAddon04"
          aria-label="Upload"
-         (change)="onFileSelected($event)" >
-  <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04" (click)="onUpload()" >Analisar</button>
+         (change)="onFileSelected($event)"
+  >
+  <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04" (click)="onUpload()">Analisar</button>
+  </div>
+  <br>
+  <div style="text-align:center">
+    <img [src]="imageSrc" *ngIf="imageSrc" style="height: 300px; width:500px">
   </div>
 </div>

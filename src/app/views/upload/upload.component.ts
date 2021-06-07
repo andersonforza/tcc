@@ -7,17 +7,19 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class UploadComponent {
   selectedFile!: File;
-  selectedImage!: ImageData;
-  url: string = '';
+  imageSrc: string | undefined;
   @Output() onSelectedFile = new EventEmitter<File>();
-
-  public handleUploadShot(imagem: ImageData) {
-    console.info('received webcam image', imagem);
-    this.selectedImage = imagem;
-  }
 
   onFileSelected(event: any) {
     this.selectedFile = <File>event.target.files[0];
+    const reader = new FileReader();
+    if(event.target.files && event.target.files.length) {
+      const [file] = event.target.files;
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        this.imageSrc = reader.result as string;
+      };
+    }
   }
 
   onUpload() {

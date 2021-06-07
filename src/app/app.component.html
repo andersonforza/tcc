@@ -6,10 +6,10 @@
     <br>
     <app-camera (pictureTaken)="handleImage($event)" (pictureTaken)="handleImageShot($event)"></app-camera>
     <br>
-    <app-upload (onSelectedFile)="onUpload($event)"></app-upload>
+    <app-upload (onSelectedFile)="onUpload($event)"  (imageUrl)="handleUploadShot($event)"></app-upload>
     <br>
     <div class="snapshot" *ngIf="webcamImage">
-      <img [src]="webcamImage?.imageAsDataUrl " />
+      <img [src]="webcamImage?.imageAsDataUrl" />
     </div>
     <br>
     <app-result [result]="result"></app-result>
