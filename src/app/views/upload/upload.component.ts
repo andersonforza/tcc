@@ -1,6 +1,4 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { HttpClient, HttpEventType } from '@angular/common/http';
-import { Byte } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-upload',
