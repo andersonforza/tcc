@@ -1,6 +1,6 @@
     <!-- Image and text -->
     <nav class="navbar navbar-light bg-light">
-      <img src="src/app/img/AWS-Rekognition-e1530657049649.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      <img src="./img/AWS-Rekognition-e1530657049649.png" width="30" height="30" class="d-inline-block align-top" alt="">
           Analise de uso de máscara com Rekognition
     </nav>
     <br>
@@ -9,10 +9,10 @@
     <app-upload (onSelectedFile)="onUpload($event)"  (onImagePreview)="handleUploadShot($event)"></app-upload>
     <br>
     <div class="snapshot" id="snapCam" style="text-align:center" *ngIf="webcamImage" >
-      <img [src]="webcamImage?.imageAsDataUrl" width="300px"/>
+      <img [src]="webcamImage?.imageAsDataUrl" width="70%"/>
     </div>
     <div class="snapshot" id="snapUpload" style="text-align:center" *ngIf="imageSrc!=''">
-      <img [src]="imageSrc" width="300px" />
+      <img [src]="imageSrc" width="70%" />
     </div>
     <br>
     <app-result [result]="result"></app-result>

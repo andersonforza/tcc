@@ -7,6 +7,12 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ResultComponent implements OnInit {
   @Input() result!: {
+    Persons: [
+      {
+        Confidence: number,
+        Id: number
+      }
+    ],
     Summary: {
       PersonsIndeterminate: number[];
       PersonsWithRequiredEquipment: number[];

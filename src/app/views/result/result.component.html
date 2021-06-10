@@ -18,4 +18,15 @@
       </td>
     </tr>
   </table>
+  <br>
+  <table class="table table-bordered">
+    <tr>
+      <th>Pessoa</th>
+      <th>% Certeza</th>
+    </tr>
+    <tr *ngFor="let person in result?.Persons; trackBy: result?.Id;">
+      <th> {{ person.Id }}</th>
+      <th> {{ person.Confidence }}</th>
+    </tr>
+  </table>
 </div>
