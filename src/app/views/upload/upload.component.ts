@@ -9,6 +9,7 @@ export class UploadComponent {
   selectedFile!: File;
   imageSrc: string | undefined;
   @Output() onSelectedFile = new EventEmitter<File>();
+  @Output() onImagePreview = new EventEmitter<string>();
 
   onFileSelected(event: any) {
     this.selectedFile = <File>event.target.files[0];
@@ -18,6 +19,7 @@ export class UploadComponent {
       reader.readAsDataURL(file);
       reader.onload = () => {
         this.imageSrc = reader.result as string;
+        this.onImagePreview.emit(this.imageSrc);
       };
     }
   }

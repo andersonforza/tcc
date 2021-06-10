@@ -9,21 +9,23 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   result: any = {};
-
   constructor(private readonly http: HttpClient) {}
 
   public webcamImage: WebcamImage | undefined;
   imageSrc: string = '';
 
   handleImageShot(webcamImage: WebcamImage) {
+    this.imageSrc = '';
     this.webcamImage = webcamImage;
   }
 
-  handleUploadShot(event: any){
-    this.imageSrc = event;
+  handleUploadShot(imageSrc: string){
+    this.webcamImage = undefined;
+    this.imageSrc = imageSrc;
   }
 
   onUpload(file: File) {
+    this.webcamImage = undefined;
     const fd = new FormData();
     fd.append('teste', file);
     this.http.post<any>('http://localhost:3000/detectarEpis', fd).subscribe({
@@ -36,8 +38,7 @@ export class AppComponent {
 
   handleImage(file: WebcamImage) {
     const fd = new FormData();
-    console.log(file);
-    fd.append('teste', file.imageAsBase64);
+    fd.append('teste', file.imageAsDataUrl);
     this.http.post<any>('http://localhost:3000/detectarEpis', fd).subscribe({
       next: (res) => {
         this.result = res;

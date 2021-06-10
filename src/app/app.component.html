@@ -6,10 +6,13 @@
     <br>
     <app-camera (pictureTaken)="handleImage($event)" (pictureTaken)="handleImageShot($event)"></app-camera>
     <br>
-    <app-upload (onSelectedFile)="onUpload($event)"  (imageUrl)="handleUploadShot($event)"></app-upload>
+    <app-upload (onSelectedFile)="onUpload($event)"  (onImagePreview)="handleUploadShot($event)"></app-upload>
     <br>
-    <div class="snapshot" *ngIf="webcamImage">
-      <img [src]="webcamImage?.imageAsDataUrl" />
+    <div class="snapshot" id="snapCam" style="text-align:center" *ngIf="webcamImage" >
+      <img [src]="webcamImage?.imageAsDataUrl" width="300px"/>
+    </div>
+    <div class="snapshot" id="snapUpload" style="text-align:center" *ngIf="imageSrc!=''">
+      <img [src]="imageSrc" width="300px" />
     </div>
     <br>
     <app-result [result]="result"></app-result>
