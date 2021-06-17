@@ -37,8 +37,9 @@ export class AppComponent {
   }
 
   handleImage(file: WebcamImage) {
+    var imageAsFile = new File([file.imageAsDataUrl], "myImage.png")
     const fd = new FormData();
-    fd.append('teste', file.imageAsDataUrl);
+    fd.append('teste', imageAsFile);
     this.http.post<any>('http://localhost:3000/detectarEpis', fd).subscribe({
       next: (res) => {
         this.result = res;
