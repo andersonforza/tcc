@@ -1,7 +1,7 @@
 <div style="text-align:center">
   <h2>Análise com uso de câmera</h2>
   <div>
-		<webcam [height]="500" [width]="500" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam"
+		<webcam id="webcam-box" [height]="300" [width]="300" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam"
 		 [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" [videoOptions]="videoOptions" (cameraSwitched)="cameraWasSwitched($event)"
 		 (initError)="handleInitError($event)"></webcam>
 		<br/>

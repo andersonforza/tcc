@@ -52,7 +52,6 @@ export class CameraComponent implements OnInit {
   }
 
   public cameraWasSwitched(deviceId: string): void {
-    console.log('active device: ' + deviceId);
     this.deviceId = deviceId;
   }
 

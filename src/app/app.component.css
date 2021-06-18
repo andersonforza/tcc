@@ -1,6 +1,19 @@
 .navbar {
-  background-color: darkblue !important;
+  background-color: lightslategray !important;
   color: whitesmoke;
   font-weight: bold;
   width: 100%;
+}
+
+#rekognition-icon {
+  width: 15% ;
+  padding-left: 10px;
+}
+
+#titulo {
+  padding-right: 20px;
+  width: 80%;
+  height: 50%;
+  font-size: large;
+  text-align: right;
 }
