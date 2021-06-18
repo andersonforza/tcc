@@ -31,7 +31,6 @@ export class AppComponent {
     this.http.post<any>('http://localhost:3000/detectarEpis', fd).subscribe({
       next: (res) => {
         this.result = res;
-        console.log(this.result);
       },
     });
   }
@@ -43,7 +42,6 @@ export class AppComponent {
     this.http.post<any>('http://localhost:3000/detectarEpis', fd).subscribe({
       next: (res) => {
         this.result = res;
-        console.log(this.result);
       },
     });
   }
