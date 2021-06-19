@@ -4,9 +4,9 @@
         <span id="titulo">Analise de uso de máscara com Rekognition</span>
     </nav>
     <br>
-    <app-camera (pictureTaken)="handleImage($event)" (pictureTaken)="handleImageShot($event)"></app-camera>
+    <app-camera (pictureTaken)="handleImage($event)" (pictureTaken)="webcamImageShot($event)"></app-camera>
     <br>
-    <app-upload (onSelectedFile)="onUpload($event)"  (onImagePreview)="handleUploadShot($event)"></app-upload>
+    <app-upload (onSelectedFile)="onUpload($event)"  (onImagePreview)="uploadShot($event)"></app-upload>
     <br>
     <div class="snapshot" id="snapCam" style="text-align:center" *ngIf="webcamImage" >
       <img [src]="webcamImage?.imageAsDataUrl" width="70%"/>

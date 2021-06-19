@@ -14,12 +14,12 @@ export class AppComponent {
   public webcamImage: WebcamImage | undefined;
   imageSrc: string = '';
 
-  handleImageShot(webcamImage: WebcamImage) {
+  webcamImageShot(webcamImage: WebcamImage) {
     this.imageSrc = '';
     this.webcamImage = webcamImage;
   }
 
-  handleUploadShot(imageSrc: string){
+  uploadShot(imageSrc: string){
     this.webcamImage = undefined;
     this.imageSrc = imageSrc;
   }
@@ -36,7 +36,10 @@ export class AppComponent {
   }
 
   handleImage(file: WebcamImage) {
-    var imageAsFile = new File([file.imageAsDataUrl], "myImage.png")
+    this.imageSrc = '';
+    var imageAsFile = new File([file.imageAsDataUrl], 'teste.jpeg', {
+      type: 'image/jpeg'
+    });
     const fd = new FormData();
     fd.append('teste', imageAsFile);
     this.http.post<any>('http://localhost:3000/detectarEpis', fd).subscribe({
